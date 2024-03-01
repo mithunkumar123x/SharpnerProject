@@ -6,32 +6,32 @@ import Button from '../UI/Button/Button';
 
 const Login = (props) => {
   const [enteredEmail, setEnteredEmail] = useState('');
-  const [emailIsValid, setEmailIsValid] = useState();
   const [enteredPassword, setEnteredPassword] = useState('');
+  const [enteredCollegeName , setEnteredCollegeName] = useState("PHONICS GROUP OF INSTITUTION");
+  const [emailIsValid, setEmailIsValid] = useState();
+  const [collegeNameIsValid , setCollegeNameIsValid] = useState()
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
 
-  useEffect(() => {
-    console.log('EFFECT RUNNING');
-
-    return () => {
-      console.log('EFFECT CLEANUP');
-    };
-  }, []);
-
   // useEffect(() => {
-  //   const identifier = setTimeout(() => {
-  //     console.log('Checking form validity!');
-  //     setFormIsValid(
-  //       enteredEmail.includes('@') && enteredPassword.trim().length > 6
-  //     );
-  //   }, 500);
+  //   console.log('EFFECT RUNNING');
 
   //   return () => {
-  //     console.log('CLEANUP');
-  //     clearTimeout(identifier);
+  //     console.log('EFFECT CLEANUP');
   //   };
-  // }, [enteredEmail, enteredPassword]);
+  // }, []);
+
+  
+  useEffect(() => {
+    setFormIsValid(
+      enteredPassword.trim().length > 6 &&
+        enteredEmail.includes("@") &&
+        enteredCollegeName.trim().length > 6 &&
+        enteredCollegeName !== ""
+    );
+  }, [enteredEmail, enteredPassword, enteredCollegeName]);
+
+
 
   const emailChangeHandler = (event) => {
     setEnteredEmail(event.target.value);
@@ -48,6 +48,9 @@ const Login = (props) => {
       enteredEmail.includes('@') && event.target.value.trim().length > 6
     );
   };
+  const collegeNameChangeHandler = (event) => {
+    setEnteredCollegeName(event.target.value);
+  };
 
   const validateEmailHandler = () => {
     setEmailIsValid(enteredEmail.includes('@'));
@@ -55,6 +58,12 @@ const Login = (props) => {
 
   const validatePasswordHandler = () => {
     setPasswordIsValid(enteredPassword.trim().length > 6);
+  };
+
+  const validateCollegeNameHandler = () => {
+    setCollegeNameIsValid(
+      enteredCollegeName.trim().length > 6 && enteredCollegeName !== ""
+    );
   };
 
   const submitHandler = (event) => {
@@ -91,6 +100,20 @@ const Login = (props) => {
             value={enteredPassword}
             onChange={passwordChangeHandler}
             onBlur={validatePasswordHandler}
+          />
+        </div>
+        <div
+          className={`${classes.control} ${
+            collegeNameIsValid === false ? classes.invalid : ""
+          }`}
+        >
+          <label htmlFor="collegeName">College Name</label>
+          <input
+            type="text"
+            id="collegeName"
+            value={enteredCollegeName}
+            onChange={collegeNameChangeHandler}
+            onBlur={validateCollegeNameHandler}
           />
         </div>
         <div className={classes.actions}>
