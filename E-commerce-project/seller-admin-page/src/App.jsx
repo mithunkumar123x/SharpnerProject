@@ -1,33 +1,14 @@
-import { useEffect, useState } from 'react'
-import ProductList from './components/productList/productList'
+import React from 'react';
 import './App.css'
-import ProductForm from './components/productForm';
+import ProductForm from './components/UI/ProductForm';
 
-const App = () => {
-  const [productList,setProductList] = useState([]);
-  const [selectedCategory,setSelectedCategory] = useState([]);
-
-  const addProduct = (product) => {
-      const updatedProductList = [...productList,product];
-      setProductList(updatedProductList);
-      localStorage.setItem('productList', JSON.stringify(updatedProductList))
-  };
-
-  useEffect( () => {
-    const storedProductList = JSON.parse(localStorage.getItem('productList'));
-       if(storedProductList) {
-         setProductList(storedProductList);
-       }
-  },[]);
+function App () {
 
   return (
-    <div>
-      <ProductForm  addProduct={addProduct}></ProductForm>
-      <div>
-      <ProductList productList={productList} selectedCategory={selectedCategory}></ProductList>
-      </div>
-    </div>
-
+   <>
+   <ProductForm name='AKSHAY' />
+   </>
+  
   )
 }
 
