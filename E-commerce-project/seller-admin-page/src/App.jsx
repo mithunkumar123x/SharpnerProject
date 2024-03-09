@@ -6,7 +6,7 @@ function App () {
 
   return (
    <>
-   <ProductForm name='AKSHAY' />
+   <ProductForm  />
    </>
   
   )
