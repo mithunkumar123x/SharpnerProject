@@ -1,6 +1,7 @@
 import classes from './AvailableMeals.module.css'
 import MealItem from './MealItem/MealItem'; 
 import Card from '../UI/Card';
+import MealItemForm from './MealItem/MealItemForm';
 
 const DUMMY_MEALS = [
     {
@@ -36,6 +37,7 @@ const AvailableMeals = () => {
     name={meal.name} 
     price={meal.price} 
     description={meal.description}
+    
      /> 
       ));
 
