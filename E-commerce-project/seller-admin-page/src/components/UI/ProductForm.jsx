@@ -1,18 +1,18 @@
 import React, { useState,useEffect } from 'react';
 
-const ProductForm = (props) => {
+const ProductForm = () => {
   const [productId, setProductId] = useState('');
   const [sellingPrice, setSellingPrice] = useState('');
   const [productName, setProductName] = useState('');
   const [category, setCategory] = useState('');
   const [productList, setProductList] = useState(JSON.parse(localStorage.getItem('products')) || []);
- 
-  
+ let Name  = '' || 0 || 1 || null || undefined 
+ console.log(Name);
+
   const skinCare =  []
-
   const electronic = []
-
   const food = []
+  
    for (let index = 0; index < productList.length; index++) {
     if (productList[index].category === 'Food'){
       food.push(productList[index])
@@ -51,13 +51,15 @@ const ProductForm = (props) => {
     const updatedProductList = productList.filter(
       (product) => product.id !== id
     );
-    setProductList(updatedProductList);
-    localStorage.removeItem(id);
+      setProductList(updatedProductList);
+  //    localStorage.removeItem(id);
+     localStorage.setItem('products' , JSON.stringify(updatedProductList))
+
   };
 
   useEffect( () => {
     localStorage.setItem('products' ,JSON.stringify(productList))
-  },[productList])
+  },[])
   
 
  
