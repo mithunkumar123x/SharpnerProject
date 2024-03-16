@@ -5,14 +5,15 @@ const MealItemForm = (props) => {
         <form className={classes.form}>
          <Input 
             label = "Amount"
-         input = {{
+            input = {{
             id: 'amount',
             type: 'number',
             min: '1',
             max: '5',
             step: '1',
             defaultValue: '1' , 
-         }} />
+              }} />
+
          <button>+ ADD Button</button>
         </form>
     )
