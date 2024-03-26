@@ -4,6 +4,7 @@
     padding: 0;
     max-height: 20rem;
     overflow: auto;
+    background-color: #65940e;
   }
   
   .total {
@@ -13,17 +14,19 @@
     font-weight: bold;
     font-size: 1.5rem;
     margin: 1rem 0;
+    background-color: #0f7e05;
   }
   
   .actions {
     text-align: right;
+    background: #23c911;
   }
   
   .actions button {
     font: inherit;
     cursor: pointer;
     background-color: transparent;
-    border: 1px solid #a8760a;
+    border: 1px solid #088b25;
     padding: 0.5rem 2rem;
     border-radius: 25px;
     margin-left: 1rem;
@@ -31,16 +34,18 @@
   
   .actions button:hover,
   .actions button:active {
-    background-color: #126d91;
-    border-color: #0f7e05;
+    background-color: #290688;
+    border-color: #073602;
     color: rgb(129, 131, 15);
   }
   
   .actions .button--alt {
     color: #8a2b06;
+    background-color: #65940e;
   }
   
   .actions .button {
     background-color: #8a2b06;
     color: rgb(107, 158, 12);
+    background: #23c911;
   }
