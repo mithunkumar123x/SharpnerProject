@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Modal from './Modal'
 import { StudentContext } from '../contexts/StudentContext';
 
+
 function MainComponent() {
     const[students,setStudents] = useState([])
     const [showModal , setShowModal] = useState(false)
@@ -31,19 +32,22 @@ function MainComponent() {
   }
    
     return (
-        <StudentContext.Provider value = {{ students,addStudent }}>
-            <div>
+        <StudentContext.Provider  value = {{ students,addStudent }}>
+            <div >
               <h1>Student Manager </h1>
-              <h1>All Students:{students.length} </h1>
-              <button onClick={openModal}>ADD NEW STUDENT</button>
+              <h1 className='bg-green-400'>All Students:{students.length} </h1>
+              <button className="btn btn-outline w-64 rounded-full btn-outline btn-primary"
+               onClick={openModal}>ADD NEW STUDENT</button>
               {showModal && <Modal closeModal={closeModal} addStudent={addStudent} student={selectedStudent} />}
-              <h2>All Students</h2>
+              <h1 >All Students</h1>
               <ul>
                 {students.map((student,index) => (
                     <li key = {index}>
                         {student.name},{student.mobile},{student.address}
-                        <button onClick={() => handleEdit(student)}>Edit</button>
-                        <button onClick = {() => handleDelete(index)}>Delete</button>
+                        <button className="btn btn-outline btn-primary"
+                         onClick={() => handleEdit(student)}>Edit</button>
+                        <button className="btn btn-outline btn-success"
+                         onClick = {() => handleDelete(index)}>Delete</button>
                     </li>
                 ))}
               </ul>

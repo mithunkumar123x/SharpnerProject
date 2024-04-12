@@ -19,8 +19,8 @@ const Modal = ({ addStudent , closeModal }) => {
                 <input type="number" value = {mobile} onChange={(e) => setMobile(e.target.value) } />
                 <label>Address:</label>
                 <input type="text" value = {address} onChange={(e) => setAddress(e.target.value) } />
-                <button type='button' onClick={handleAdd}>ADD</button>
-                <button type='button' onClick={closeModal}>CLOSE</button>
+                <button  className="btn w-64 rounded-full btn-outline btn-success"  onClick={handleAdd}>ADD</button>
+                <button  class="btn w-64 rounded-full btn-outline border-t-pink-700"  onClick={closeModal}>CLOSE</button>
             </form>
         </div>
     )
