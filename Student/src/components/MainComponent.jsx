@@ -33,10 +33,10 @@ function MainComponent() {
    
     return (
         <StudentContext.Provider  value = {{ students,addStudent }}>
-            <div >
+            <div className='bg-green-400'>
               <h1>Student Manager </h1>
               <h1 className='bg-green-400'>All Students:{students.length} </h1>
-              <button className="btn btn-outline w-64 rounded-full btn-outline btn-primary"
+              <button className=" w-64 rounded-full btn-outline btn-primary"
                onClick={openModal}>ADD NEW STUDENT</button>
               {showModal && <Modal closeModal={closeModal} addStudent={addStudent} student={selectedStudent} />}
               <h1 >All Students</h1>
