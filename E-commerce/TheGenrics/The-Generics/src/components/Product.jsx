@@ -1,7 +1,7 @@
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import { productsArr } from "./Item";
+import { productsArr} from "./Item";
 
 
 const Products = () => {
@@ -18,7 +18,7 @@ const Products = () => {
             />
             <Row className="align-items-center mb-4">
               <Col md>
-                <p>{product.price}</p>
+                <p>${product.price}</p>
               </Col>
               <Col md>
                 <Button variant="info">Add to Cart</Button>
