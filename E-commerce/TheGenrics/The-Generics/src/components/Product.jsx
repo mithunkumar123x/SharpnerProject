@@ -2,9 +2,14 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { productsArr} from "./Item";
+import { useCart } from "./CartContext/CartContext";
 
 
-const Products = () => {
+const Products =  ( ) => { 
+       const { onAddToCart } = useCart();
+
+       
+
   return (
     <Row className="justify-content-center text-center p-5">
       {productsArr.map((product) => {
@@ -21,7 +26,10 @@ const Products = () => {
                 <p>${product.price}</p>
               </Col>
               <Col md>
-                <Button variant="info">Add to Cart</Button>
+                <Button 
+                variant="info" onClick={ () => onAddToCart({...product, id:product.imageUrl })}>
+                  Add to Cart</Button>
+                  
               </Col>
             </Row>
           </Col>

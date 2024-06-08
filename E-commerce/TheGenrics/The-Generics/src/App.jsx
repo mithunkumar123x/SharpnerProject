@@ -6,19 +6,18 @@ import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import Offcanvas from "react-bootstrap/Offcanvas" 
 import { cartElements } from './components/Item';
-
+import {CartContextProvider} from './components/CartContext/CartContext';
 
 
 function App() {
-
   const [show,setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   
   return (
-     <>
-      <Header />
+     <CartContextProvider>
+      <Header onShow={handleShow} onHide = {handleClose} />
       <Offcanvas show={show} placement={"end"} onHide={handleClose}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>
@@ -70,7 +69,7 @@ function App() {
            <Row>
             <Col className="text-end">
               <h4>
-                Total <span>$0</span>
+                Total Amount <span>${}</span>
               </h4>
             </Col>
            </Row>
@@ -91,17 +90,11 @@ function App() {
             </h1>
           </Col>
         </Row>
-        <div class="fixed z-20 w-full" >
-          <nav class="border-b-2 bg-white w-full top-0 left-0 border-gray-200">
-           <h1>listen music</h1>
-          </nav>
-        </div>
-
-        <Row>
+         <Row>
           <Col>
             <h3 className="display-6  mt-4 fw-medium  text-center">MUSIC</h3>
           </Col>
-        </Row>
+         </Row>
         <Products />
 
         <Row className="justify-content-around  ">
@@ -117,7 +110,7 @@ function App() {
       
         <Footer />
       </Container>
-    </>
+    </CartContextProvider>
   );
 }
 

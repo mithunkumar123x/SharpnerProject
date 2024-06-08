@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import { Row,Col}  from "react-bootstrap";
+
 export const Footer = () => {
     return (
       <Row
