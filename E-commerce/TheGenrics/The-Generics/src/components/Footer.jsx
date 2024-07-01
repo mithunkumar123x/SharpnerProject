@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Row,Col}  from "react-bootstrap";
 
-export const Footer = () => {
+const Footer = () => {
     return (
       <Row
       className="bg-info justify-content-evenly align-items-center px-4 "
@@ -29,3 +29,4 @@ export const Footer = () => {
     )
 }
 
+export default Footer;
