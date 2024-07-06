@@ -1,10 +1,10 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Navbar, Nav, NavLink } from "react-bootstrap";
-import { cartContext } from './CartContext/CartContext';
+import { CartContext } from './CartContext/CartContext';
 
 const Header = ({ onShow }) => {
-  const { cartData } = React.useContext(cartContext);
+  const { cartData } = React.useContext(CartContext);
 
   const totalItems = cartData.reduce((acc, item) => {
     return acc + item.quantity;
@@ -17,6 +17,7 @@ const Header = ({ onShow }) => {
         <Nav className="me-auto">
           <Nav.Link as={NavLink} to="/" className="mx-3 text-decoration-none" activeStyle={{ color: "#4169E1" }}>Home</Nav.Link>
           <Nav.Link as={NavLink} to="/store" className="mx-3 text-decoration-none" activeStyle={{ color: "#4169E1" }}>Store</Nav.Link>
+          <Nav.Link as={NavLink} to="/home" className="mx-3 text-decoration-none" activeStyle={{ color: "#4169E1" }}>About</Nav.Link>
           <Nav.Link as={NavLink} to="/about" className="mx-3 text-decoration-none" activeStyle={{ color: "#4169E1" }}>About</Nav.Link>
         </Nav>
         <Nav onClick={onShow}>
